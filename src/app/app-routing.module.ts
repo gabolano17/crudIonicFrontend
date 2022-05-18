@@ -8,9 +8,21 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'posts',
     pathMatch: 'full'
   },
+  {
+    path: 'posts',
+    loadChildren: () => import('./posts/posts.module').then( m => m.PostsPageModule)
+  },
+  {
+    path: 'registrar-user',
+    loadChildren: () => import('./registrar-user/registrar-user.module').then( m => m.RegistrarUserPageModule)
+  },
+  {
+    path: 'editar-user/:id',
+    loadChildren: () => import('./registrar-user/registrar-user.module').then( m => m.RegistrarUserPageModule)
+  }
 ];
 
 @NgModule({

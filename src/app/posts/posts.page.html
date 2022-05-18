@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>CRUD Basico</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let user of users" size="12" sizeMd="4">
+        <ion-card>
+          <ion-card-content>
+            <div>
+              Nombre: {{user.nombre}}
+            </div>
+            <div>
+              Apellido: {{user.apellido}}
+            </div>
+            <div>
+              Mail: {{user.mail}}
+            </div>
+            <div>
+              <ion-button color="warning" [routerLink]="['/', 'editar-user', user.id]">Editar</ion-button>
+              <ion-button color="danger" (click)="deleteUser(user.id)">Eliminar</ion-button>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" routerLink="/registrar-user">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
